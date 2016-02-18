@@ -99,7 +99,7 @@
         "vmStorageAccountContainerName": "vhds",
         "vmName": "[concat(variables('deploymentname'),'Vm')]",
         "vmSize": "Standard_DS3",
-        "configurationFunction": "StoragePool.ps1\\InstallRavenDBOnDiskPool",
+        "configurationFunction": "create-storage-pool.ps1\\InstallRavenDBOnDiskPool",
         "DscExtensionName": "DscExtension",
         "virtualNetworkName": "[concat(variables('deploymentname'),'-vnet')]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
