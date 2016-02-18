@@ -81,6 +81,13 @@
             "metadata": {
                 "description": "URL for the DSC configuration module. NOTE: Can be a Github url(raw) to the zip file"
             }
+        },
+        "ravenDownloadUrl":{
+            "type": "string",
+            "default": "http://hibernatingrhinos.com/downloads/RavenDB%20Installer/30037",
+            "metadata": {
+                "description": "URL to fetch RavenDB binaries from Hibernating Rhinos web site"
+            }
         }
     },
     "variables": {
@@ -102,6 +109,7 @@
         "configurationFunction": "create-storage-pool.ps1\\InstallRavenDBOnDiskPool",
         "DscExtensionName": "DscExtension",
         "virtualNetworkName": "[concat(variables('deploymentname'),'-vnet')]",
+        "securityGroupName": "[concat(variables('vmName'),'nsg')]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
     },
@@ -256,11 +264,50 @@
                     "SasToken": "",
                     "ConfigurationFunction": "[variables('configurationFunction')]",
                     "Properties": {
-                        "MachineName": "[variables('vmName')]"
+                        "MachineName": "[variables('vmName')]",
+                        "RavenDownloadPath": "[parameters('ravenDownloadUrl')]"
                     }
                 },
                 "protectedSettings": null
             }
-        }
+        },
+{
+			"apiVersion": "2015-05-01-preview",
+			"type": "Microsoft.Network/networkSecurityGroups",
+			"name": "[variables('securityGroupName')]",
+			"location": "[parameters('location')]",
+			"properties": {
+				"securityRules": [
+					{
+						"name": "allow-rdp-in",
+						"properties": {
+							"description": "Allows rdp traffic",
+							"protocol": "Tcp",
+							"sourcePortRange": "*",
+							"destinationPortRange": "3389",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"access": "Allow",
+							"priority": 100,
+							"direction": "Inbound"
+						}
+					},
+					{
+						"name": "allow-raven-management",
+						"properties": {
+							"description": "Allows traffic to Raven Management Studio",
+							"protocol": "Tcp",
+							"sourcePortRange": "*",
+							"destinationPortRange": "8080",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"access": "Allow",
+							"priority": 200,
+							"direction": "Inbound"
+						}
+					}
+				]
+			}
+		}
     ]
 }
