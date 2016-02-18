@@ -84,7 +84,7 @@
         },
         "ravenDownloadUrl":{
             "type": "string",
-            "default": "http://hibernatingrhinos.com/downloads/RavenDB%20Installer/30037",
+            "defaultValue": "http://hibernatingrhinos.com/downloads/RavenDB%20Installer/30037",
             "metadata": {
                 "description": "URL to fetch RavenDB binaries from Hibernating Rhinos web site"
             }
