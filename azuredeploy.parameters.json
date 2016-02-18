@@ -1,0 +1,30 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "West Europe"
+    },
+    "newStorageAccountName": {
+      "value": "vitoravensa01"
+    },
+    "adminUsername": {
+      "value": "vito"
+    },
+    "adminPassword": {
+      "value": "Password.01"
+    },
+    "vmSize": {
+       "value": "Standard_DS3"
+    },
+    "dataDiskSize": {
+       "value": "512"
+    },
+    "dnsNameForPublicIP": {
+      "value": "vitoravendbtest01"
+    },
+    "initScriptUrl": {
+        "value": "https://github.com/Azure/azure-quickstart-templates/blob/master/301-vm-32-data-disks-high-iops/StoragePool.ps1.zip?raw=true"
+    }
+  }
+}
