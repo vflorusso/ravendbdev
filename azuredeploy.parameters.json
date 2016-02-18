@@ -6,13 +6,13 @@
             "value": "West Europe"
         },
         "newStorageAccountName": {
-            "value": "vitoravensa02"
+            "value": "yourravensa"
         },
         "adminUsername": {
-            "value": "vito"
+            "value": "username"
         },
         "adminPassword": {
-            "value": "Password.01"
+            "value": "secretpassword123"
         },
         "vmSize": {
             "value": "Standard_DS3"
@@ -21,13 +21,9 @@
             "value": "512"
         },
         "dnsNameForPublicIP": {
-            "value": "vitoravendbtest02"
+            "value": "yourravendb"
         },
         "initScriptUrl": {
             "value": "https://github.com/vflorusso/ravendbdev/blob/master/create-storage-pool.ps1.zip?raw=true"
-        },
-        "ravenDownloadUrl": {
-            "value": "http://hibernatingrhinos.com/downloads/RavenDB%20Installer/30037"
         }
-    }
 }
