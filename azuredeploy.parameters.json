@@ -6,7 +6,7 @@
       "value": "West Europe"
     },
     "newStorageAccountName": {
-      "value": "vitoravensa01"
+      "value": "vitoravensa02"
     },
     "adminUsername": {
       "value": "vito"
@@ -21,10 +21,10 @@
        "value": "512"
     },
     "dnsNameForPublicIP": {
-      "value": "vitoravendbtest01"
+      "value": "vitoravendbtest02"
     },
     "initScriptUrl": {
-        "value": "https://github.com/Azure/azure-quickstart-templates/blob/master/301-vm-32-data-disks-high-iops/StoragePool.ps1.zip?raw=true"
+        "value": "https://github.com/vflorusso/ravendbdev/blob/master/create-storage-pool.ps1.zip?raw=true"
     }
   }
 }

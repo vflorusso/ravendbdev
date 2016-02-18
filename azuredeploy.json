@@ -77,7 +77,7 @@
         },
         "initScriptUrl": {
             "type": "string",
-            "defaultValue": "https://github.com/Azure/azure-quickstart-templates/blob/master/301-vm-32-data-disks-high-iops/StoragePool.ps1.zip?raw=true",
+            "defaultValue": "https://github.com/vflorusso/ravendbdev/blob/master/create-storage-pool.ps1.zip?raw=true",
             "metadata": {
                 "description": "URL for the DSC configuration module. NOTE: Can be a Github url(raw) to the zip file"
             }
@@ -99,7 +99,7 @@
         "vmStorageAccountContainerName": "vhds",
         "vmName": "[concat(variables('deploymentname'),'Vm')]",
         "vmSize": "Standard_DS3",
-        "configurationFunction": "StoragePool.ps1\\StoragePool",
+        "configurationFunction": "StoragePool.ps1\\InstallRavenDBOnDiskPool",
         "DscExtensionName": "DscExtension",
         "virtualNetworkName": "[concat(variables('deploymentname'),'-vnet')]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
