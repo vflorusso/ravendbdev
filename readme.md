@@ -1,13 +1,21 @@
 # Windows VM with Raven DB Developer Edition
 
-Create a VM from 32 Data Disks configured for high IOPS
+Create a VM with a 2 Disk storage Pool and RavenDB developer installation
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-vm-32-data-disks-high-iops%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvflorusso%2Fravendbdev%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-vm-32-data-disks-high-iops%2Fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fvflorusso%2Fravendbdev%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-This template creates an instance with the maximum number of data disks configured in a simple storage space.   It creates a new volume with the target interleave of 64KB striped across the number of disks present.  The volume is formatted with NTFS and presented as the H:\.    This is ideal for IOPS and throughput intensive workloads while still leveraging standard storage.  The storage account created is locally redundant (LRS) as geo-redundant (GRS) would potentially be corrupted replicas to do the async process.
+The list of RavenDB specific properties:
+-RAVEN_INSTALLATION_TYPE - available options: SERVICE or IIS (quiet mode installation on IIS is not recommended)
+-RAVEN_TARGET_ENVIRONMENT - available options: PRODUCTION (default), DEVELOPMENT
+-RAVEN_LICENSE_FILE_PATH - a full path to the license file
+-RAVEN_DATA_DIR - data directory (default: ~\Data)
+-RAVEN_INDEX_DIR - indexes location (default: empty - together with tenant db's data)
+-RAVEN_STORAGE_LOGS_DIR - logs location (default: empty - together with tenant db's data)
+-SERVICE_NAME - default: RavenDB
+-SERVICE_PORT - default: 8080
 
